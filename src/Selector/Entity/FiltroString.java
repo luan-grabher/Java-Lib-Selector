@@ -89,7 +89,6 @@ public class FiltroString {
         return printList(naoPossui);
     }
 
-    
     public String getListPossuiStr(String separador){
         return printList(possui, separador);
     }
