@@ -9,13 +9,16 @@ public class Arquivo {
 
     /**
      *  Mostra janela para escolha de um arquivo
+     *  @param pathStart Local onde a janela será aberta
+     *  @param typeName Nome exibido para o usuário do tipo de arquivo
+     *  @param type Tipo do arquivo, acompanhado do ponto.
      *  @return File do arquivo escolhido
      */
-    public static File selecionar(String local, String nomeTipo, String tipo) {
+    public static File selecionar(String pathStart, String typeName, String type) {
         File arquivo;
-        arquivo = new File(local);
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FileNameExtensionFilter(nomeTipo, tipo));
+        arquivo = new File(pathStart);
+        JFileChooser fileChooser = new JFileChooser(pathStart);
+        fileChooser.setFileFilter(new FileNameExtensionFilter(typeName, type));
         fileChooser.setAcceptAllFileFilterUsed(false);
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
